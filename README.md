@@ -45,44 +45,60 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 4-bit Count Down Counter
-### Procedure
-/* write all the steps invloved */
-
-
-
-### PROGRAM 
-/*
+### PROCEDURE:
+1.Create module projectname(input ,output) to start the verilog programming.
+2.create a if loop condition to increase the count in counter_up function.
+3.Similarly, create another loop for the down counter.
+4.End the verilog program using keyword endmodule.
+5.Get the timing diagram and RTL realization diagram for respective Counters.
+### PROGRAM :
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
-
-
-
-
-
-### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+Developed by: Sithi hajara I
+RegisterNumber:  212221230102
+```
+### UP-COUNTER:
+```
+module UC(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_up;
+always@ (posedge clk or posedge reset)
+begin
+if(reset)
+counter_up <= 4'd0;
+else
+counter_up <= counter_up + 4'd1;
+end
+assign counter = counter_up;
+endmodule
+```
+### DOWN-COUNTER:
+```
+module DC(input clk,input reset,output[0:3]counter);
+reg[0:3] counter_down;
+always@(posedge clk or posedge reset)
+begin
+if(reset)
+counter_down <= 4'd0;
+else
+counter_down <= counter_down - 4'd1;
+end
+assign counter = counter_down;
+endmodule
+```
+### OUTPUT:
+### UP-COUNTER:
+### RTL Logic:
+![uprtl](https://user-images.githubusercontent.com/94219582/171818192-851e23b6-15ec-46d0-8cb7-39189e389109.png)
+### Timing Diagram for Counter:
+![uptime2](https://user-images.githubusercontent.com/94219582/171818247-e26deb06-4e23-43a2-abf0-57bf33dcc99b.png)
+### Truth Table:
+![upctt](https://user-images.githubusercontent.com/94219582/171818278-ef8e82f6-2a3d-49d2-a7bc-e0848595e64d.png)
+### DOWN-COUNTER:
+### RTL Logic:
+![downrtl](https://user-images.githubusercontent.com/94219582/171818310-5588be09-bee2-466a-9b71-5c1b4464c9a8.png)
+### Timing Diagram for Counter:
+![downtime2](https://user-images.githubusercontent.com/94219582/171818339-4ea8bebb-0e57-4322-82a9-bdfcb6a4937b.png)
+### Truth Table:
+![dctt1](https://user-images.githubusercontent.com/94219582/171818360-656710ab-e2b4-443d-a26d-2efbd7ac2eb5.png)
+### RESULTS
+Thus 4 bit up and down counters is implemented and its functionality is validated.
